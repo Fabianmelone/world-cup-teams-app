@@ -1,34 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import './App.scss';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [items, setItems] = useState([]);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+
+  const fetchItems = async () => {
+    const { data } = await axios.get('/api/items');
+    setItems(data);
+  }
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.post('/api/items', { name, description });
+    setName('');
+    setDescription('');
+    fetchItems();
+  }
+
+  const handleDelete = async (id) => {
+    await axios.delete(`/api/items/${id}`);
+    fetchItems();
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="app">
+      <h1 className="app__title">World Cup App</h1>
+
+      <form className="app__form" onSubmit={handleSubmit}>
+        <input 
+          className="app__input"
+          placeholder="Item name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+         <input 
+          className="app__input"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <button className="app__button" type="submit">
+          Add Item
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      </form>
+
+      <ul className="app__list">
+        {items.map((item) => (
+          <li className="app__list-item" key={item._id}>
+            <span>
+              <strong>{item.name}</strong> - {item.description}
+            </span>
+            <button
+              className="app__delete-button"
+              onClick={() => handleDelete(item._id)}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
