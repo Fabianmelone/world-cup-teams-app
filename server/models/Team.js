@@ -10,11 +10,14 @@ const TeamSchema = new Schema(
         },
         countryFlag: {
             type: String,
-        }
-    },  
-    {
-        timestamps: true
+        },
+        players: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Player",
+            }
+        ],
     }
 );
 
-module.exports = mongoose.model('Group', GroupSchema);
+module.exports = mongoose.model('Team', TeamSchema);

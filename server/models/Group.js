@@ -11,13 +11,12 @@ const GroupSchema = new Schema(
         groupColor: {
             type: String,
         }, 
-        teams: {
-            type: Schema.Types.ObjectId,
-            ref: "Team",
-        }
-    },  
-    {
-        timestamps: true
+        teams: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Team",
+            }
+        ], 
     }
 );
 
