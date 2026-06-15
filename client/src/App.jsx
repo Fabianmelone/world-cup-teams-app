@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import './App.scss';
+import Hero from './components/Hero/Hero';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -36,8 +37,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="app__title">World Cup App</h1>
-
+      <Hero />
       <form className="app__form" onSubmit={handleSubmit}>
         <input 
           className="app__input"
