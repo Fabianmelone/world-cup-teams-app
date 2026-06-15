@@ -4,13 +4,17 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongo:27017/merndb';
+const PORT = process.env.PORT || 5050;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/merndb';
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
+
+app.get('/', (req, res) => {
+    res.send('Backend is running');
+});
 // Routes
 app.use('/api/items', require('./routes/items'));
 
