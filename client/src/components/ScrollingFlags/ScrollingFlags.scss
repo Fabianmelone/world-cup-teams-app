@@ -1,0 +1,232 @@
+.scrolling-flag-container {
+    display: flex;
+    block-size: var(--flag-height);
+    margin-block: 20px;
+    position: relative;
+    overflow-x: hidden;
+    mask-image: linear-gradient(
+        to right,
+        hsl(0 0% 0% / 0),
+        hsl(0 0% 0% / 1) 20%,
+        hsl(0 0% 0% / 1) 80%,
+        hsl(0 0% 0% / 0)
+    );
+    --flag-gap-width: 120px;
+    --flag-height: 150px;
+    --flag-duration: 84s;
+    --flag-items: 48;
+    
+    .single-flag {
+        --flag-offset: max(
+            calc(var(--flag-gap-width) * var(--flag-items)),
+            calc(100% + var(--flag-gap-width))
+        );
+        --flag-delay: calc(var(--flag-duration) / var(--flag-items) * (var(--flag-items) - var(--flag-index)) * -1);
+        position: absolute;
+        inset-inline-start: var(--flag-offset);
+        transform: translateX(-50%);
+        animation: go linear var(--flag-duration) var(--flag-delay, 0s) infinite;
+        height: 50px;
+        width: 100px;
+        object-fit: cover;
+        &:nth-of-type(1) {
+        --flag-index: 1;
+        }
+
+        &:nth-of-type(2) {
+        --flag-index: 2;
+        }
+
+        &:nth-of-type(3) {
+        --flag-index: 3;
+        }
+
+        &:nth-of-type(4) {
+        --flag-index: 4;
+        }
+
+        &:nth-of-type(5) {
+        --flag-index: 5;
+        }
+
+        &:nth-of-type(6) {
+        --flag-index: 6;
+        }
+
+        &:nth-of-type(7) {
+        --flag-index: 7;
+        }
+
+        &:nth-of-type(8) {
+        --flag-index: 8;
+        }
+
+        &:nth-of-type(9) {
+        --flag-index: 9;
+        }
+
+        &:nth-of-type(10) {
+        --flag-index: 10;
+        }
+
+        &:nth-of-type(11) {
+        --flag-index: 11;
+        }
+
+        &:nth-of-type(12) {
+        --flag-index: 12;
+        }
+
+        &:nth-of-type(13) {
+        --flag-index: 13;
+        }
+
+        &:nth-of-type(14) {
+        --flag-index: 14;
+        }
+
+        &:nth-of-type(15) {
+        --flag-index: 15;
+        }
+
+        &:nth-of-type(16) {
+        --flag-index: 16;
+        }
+
+        &:nth-of-type(17) {
+        --flag-index: 17;
+        }
+
+        &:nth-of-type(18) {
+        --flag-index: 18;
+        }
+
+        &:nth-of-type(19) {
+        --flag-index: 19;
+        }
+
+        &:nth-of-type(20) {
+        --flag-index: 20;
+        }
+
+        &:nth-of-type(21) {
+        --flag-index: 21;
+        }
+
+        &:nth-of-type(22) {
+        --flag-index: 22;
+        }
+
+        &:nth-of-type(23) {
+        --flag-index: 23;
+        }
+
+        &:nth-of-type(24) {
+        --flag-index: 24;
+        }
+
+        &:nth-of-type(25) {
+        --flag-index: 25;
+        }
+
+        &:nth-of-type(26) {
+        --flag-index: 26;
+        }
+
+        &:nth-of-type(27) {
+        --flag-index: 27;
+        }
+
+        &:nth-of-type(28) {
+        --flag-index: 28;
+        }
+
+        &:nth-of-type(29) {
+        --flag-index: 29;
+        }
+
+        &:nth-of-type(30) {
+        --flag-index: 30;
+        }
+
+        &:nth-of-type(31) {
+        --flag-index: 31;
+        }
+
+        &:nth-of-type(32) {
+        --flag-index: 32;
+        }
+
+        &:nth-of-type(33) {
+        --flag-index: 33;
+        }
+
+        &:nth-of-type(34) {
+        --flag-index: 34;
+        }
+
+        &:nth-of-type(35) {
+        --flag-index: 35;
+        }
+
+        &:nth-of-type(36) {
+        --flag-index: 36;
+        }
+
+        &:nth-of-type(37) {
+        --flag-index: 37;
+        }
+
+        &:nth-of-type(38) {
+        --flag-index: 38;
+        }
+
+        &:nth-of-type(39) {
+        --flag-index: 39;
+        }
+
+        &:nth-of-type(40) {
+        --flag-index: 40;
+        }
+
+        &:nth-of-type(41) {
+        --flag-index: 41;
+        }
+
+        &:nth-of-type(42) {
+        --flag-index: 42;
+        }
+
+        &:nth-of-type(43) {
+        --flag-index: 43;
+        }
+
+        &:nth-of-type(44) {
+        --flag-index: 44;
+        }
+
+        &:nth-of-type(45) {
+        --flag-index: 45;
+        }
+
+        &:nth-of-type(46) {
+        --flag-index: 46;
+        }
+
+        &:nth-of-type(47) {
+        --flag-index: 47;
+        }
+
+        &:nth-of-type(48) {
+        --flag-index: 48;
+        }
+
+
+    }
+}
+
+@keyframes go {
+  to {  
+    inset-inline-start: calc(var(--flag-gap-width) * -1);
+  }
+}

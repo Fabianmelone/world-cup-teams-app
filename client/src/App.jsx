@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import './App.scss';
 import Hero from './components/Hero/Hero';
+import ScrollingFlags from './components/ScrollingFlags/ScrollingFlags';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -38,6 +39,7 @@ function App() {
   return (
     <div className="app">
       <Hero />
+      <ScrollingFlags />
       <form className="app__form" onSubmit={handleSubmit}>
         <input 
           className="app__input"
