@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import './App.scss';
 
@@ -7,12 +7,17 @@ function App() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
-  const fetchItems = async () => {
+  const fetchItems = useCallback(async () => {
     const { data } = await axios.get('/api/items');
     setItems(data);
-  }
+  }, []);
 
   useEffect(() => {
+    const fetchItems = async () => {
+      const { data } = await axios.get('/api/items');
+      setItems(data);
+    };
+
     fetchItems();
   }, []);
 
@@ -21,7 +26,7 @@ function App() {
     await axios.post('/api/items', { name, description });
     setName('');
     setDescription('');
-    fetchItems();
+    await fetchItems();
   }
 
   const handleDelete = async (id) => {

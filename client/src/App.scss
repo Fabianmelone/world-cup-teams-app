@@ -1,0 +1,53 @@
+.app {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: sans-serif;
+    &__title {
+    margin-bottom: 24px;
+  }
+
+  &__form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  &__input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  &__button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background: #444;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__delete-button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #d9534f;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background: #c9302c;
+    }
+  }
+}
+
