@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const db = require('./config/connection');
+const routes = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 5050;
@@ -16,7 +17,7 @@ app.get('/', (req, res) => {
     res.send('Backend is running');
 });
 // Routes
-app.use('/api/items', require('./routes/items'));
+app.use(routes);
 
 
 // Health check
