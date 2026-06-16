@@ -17,6 +17,10 @@ const TeamSchema = new Schema(
                 ref: "Player",
             }
         ],
+        slug: {
+            type: String,
+            required: true
+        },
     }
 );
 

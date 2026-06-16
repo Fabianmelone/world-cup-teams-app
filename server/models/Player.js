@@ -19,7 +19,11 @@ const PlayerSchema = new Schema(
         },
         playerImage: {
             type: String,
-        }
+        },
+        slug: {
+            type: String,
+            required: true
+        },
     }
 );
 

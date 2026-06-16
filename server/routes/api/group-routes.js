@@ -10,12 +10,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:slug', async (req, res) => {
     try {
-        const group = await Group.findById(req.params.id).populate('teams');
+        const group = await Group.findOne({slug: req.params.slug}).populate('teams');
 
         if (!group) {
-            return res.status(404).json({ message: 'No group found with this id'});
+            return res.status(404).json({ message: 'No group found with this slug'});
         }
 
         res.json(group);

@@ -10,12 +10,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:slug', async (req, res) => {
     try {
-        const player = await Player.findById(req.params.id);
+        const player = await Player.findOne({slug: req.params.slug});
 
         if (!player) {
-            return res.status(404).json({ message: 'No player found with this id'});
+            return res.status(404).json({ message: 'No player found with this slug'});
         }
 
         res.json(player);

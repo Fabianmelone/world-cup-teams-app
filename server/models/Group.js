@@ -11,6 +11,10 @@ const GroupSchema = new Schema(
         groupColor: {
             type: String,
         }, 
+        slug: {
+            type: String,
+            required: true
+        },
         teams: [
             {
                 type: Schema.Types.ObjectId,
