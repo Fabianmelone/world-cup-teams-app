@@ -22,6 +22,7 @@ function Teams() {
 
     return (
         <section>
+            <Link to={'/'} className="back-link">Back to all Groups</Link>
             <h2>Teams:</h2>
             <ul className="team-list">
                 {group.teams.map((team) => (
