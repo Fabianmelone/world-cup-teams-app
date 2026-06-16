@@ -29,8 +29,13 @@ function Players() {
                 {team.players.map((player) => (
                 <li key={player._id}>
                     <div className="player-card">
-                    <h3>{player.playerName}</h3>
-                    <p className="player-position">{player.playerNumber}</p>
+                        <h3>{player.playerName}</h3>
+                        <p className="player-position">{player.playerNumber}</p>
+                        <ul className="player-details">
+                            <li><strong>Age:</strong> {player.playerAge}</li>
+                            <li><strong>Height:</strong> {player.height} cm</li>
+                            <li><strong>Position:</strong> {player.position}</li>
+                        </ul>
                     </div>
                 </li>
                 ))}

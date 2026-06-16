@@ -11,6 +11,9 @@ const PlayerSchema = new Schema(
         playerNumber: {
             type: String,
         }, 
+        playerAge: {
+            type: Number,
+        },
         height: {
             type: Number,
         },
