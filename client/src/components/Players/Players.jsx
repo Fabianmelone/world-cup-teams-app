@@ -23,15 +23,15 @@ function Players() {
 
     return (
         <section>
-            <h2>Players {team.countryName}:</h2>
+            <Link to={`/groups/${groupSlug}`} className="back-link">Back to {groupSlug.toUpperCase()}</Link>
+            <h2>{team.countryName}'s World Cup Team:</h2>
             <ul className="team-list">
                 {team.players.map((player) => (
                 <li key={player._id}>
-                    <Link to={`/players/${player.slug}`}>
-                        <div className="team">
-                        <h3>{player.playerName}</h3>
-                        </div>
-                    </Link>
+                    <div className="player-card">
+                    <h3>{player.playerName}</h3>
+                    <p className="player-position">{player.playerNumber}</p>
+                    </div>
                 </li>
                 ))}
             </ul>

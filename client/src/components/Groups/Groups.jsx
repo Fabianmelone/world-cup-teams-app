@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Groups.scss';
 import { Link } from 'react-router-dom';
 
+
 function Groups() {
     const [groups, setGroups] = useState([]);
 
