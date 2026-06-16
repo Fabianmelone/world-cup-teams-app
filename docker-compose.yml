@@ -1,0 +1,53 @@
+services:
+  # MongoDB
+  mongo:
+    image: mongo:7
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mern-network
+
+# Express/Node Backend
+  server:
+    build:
+      context: ./server
+    container_name: mern-server
+    restart: unless-stopped
+    ports:
+      - "5001:5050"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/merndb
+      - PORT=5050
+    depends_on:
+      - mongo
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - mern-network
+  # React Frontend
+  client:
+    build:
+      context: ./client
+    container_name: mern-client
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - mern-network
+
+volumes:
+  mongo_data:
+
+networks:
+  mern-network:
+    driver: bridge
