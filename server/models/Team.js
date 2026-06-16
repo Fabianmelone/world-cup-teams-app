@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const playerSchema = require('./Player');
 const { Schema } = mongoose;
 
 const TeamSchema = new Schema(
@@ -11,17 +11,13 @@ const TeamSchema = new Schema(
         countryFlag: {
             type: String,
         },
-        players: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Player",
-            }
-        ],
+        players: [playerSchema],
         slug: {
             type: String,
             required: true
         },
-    }
+    },
+    { _id: true }
 );
 
 module.exports = mongoose.model('Team', TeamSchema);

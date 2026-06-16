@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Teamschema = require('./Team')
 const { Schema } = mongoose;
 
 const GroupSchema = new Schema(
@@ -15,12 +15,7 @@ const GroupSchema = new Schema(
             type: String,
             required: true
         },
-        teams: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Team",
-            }
-        ], 
+        teams: [Teamschema], 
     }
 );
 

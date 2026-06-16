@@ -24,7 +24,8 @@ const PlayerSchema = new Schema(
             type: String,
             required: true
         },
-    }
+    },
+    { _id: true }
 );
 
 module.exports = mongoose.model('Player', PlayerSchema);
