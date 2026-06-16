@@ -4,6 +4,7 @@ import ScrollingFlags from './components/ScrollingFlags/ScrollingFlags';
 import Groups from './components/Groups/Groups';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Teams from './components/Teams/Teams';
+import Players from './components/Players/Players';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
           <Route 
             path="/groups/:slug"
             element={<Teams />}
+          />
+          <Route 
+            path="/groups/:groupSlug/teams/:teamSlug"
+            element={<Players />}
           />
         </Routes>
       </Router>

@@ -20,4 +20,4 @@ const TeamSchema = new Schema(
     { _id: true }
 );
 
-module.exports = mongoose.model('Team', TeamSchema);
+module.exports = TeamSchema

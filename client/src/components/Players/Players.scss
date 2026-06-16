@@ -3,7 +3,7 @@ h2 {
     text-align: center;
   }
 
-  .group-list {
+  .team-list {
     list-style: none;
     padding: 0;
     margin: 0 auto;
@@ -15,7 +15,7 @@ h2 {
     a {
       color: #fff;
     }
-    .group {
+    .team {
       box-sizing: border-box;
       width: 500px;
       height: 300px;
@@ -30,6 +30,5 @@ h2 {
         color: #fff;
         box-shadow: inset 0px 0px 8px rgb(25, 153, 173), 0 0 15px rgb(17, 161, 238);
       }
-     
     }
   }
