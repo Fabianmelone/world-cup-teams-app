@@ -51,9 +51,7 @@ h2 {
         li {
           display: flex;
           justify-content: space-between;
-          strong {
-            margin-right: 2rem;
-          }
+          gap: 4rem;
         }
       }
     }
